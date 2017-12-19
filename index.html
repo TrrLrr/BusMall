@@ -17,27 +17,30 @@
         <button id="start_button" type="submit"> Start</button>
       </form>
 
-      <form id="survey_main">
-        <div class="product">
-          <fieldset id="product_one" >
-            <label for="first_img"></label>
-            <input type="image" src="" name="first_img" class="image">
-          </fieldset>
-        </div>
-        <div class="product">
-          <fieldset id="product_two" >
-            <label for="second_img"></label>
-            <input type="image" src="" name="second_img" class="image">
-          </fieldset>
-        </div>
-        <div class="product">
-          <fieldset id="product_three" >
-            <label for="third_img"></label>
-            <input type="image" src="" name="third_img" class="image">
-          </fieldset>
-        </div>
+      <section class="main">
+        <form id="survey_main">
+          <div class="product">
+            <fieldset id="product_one" >
+              <label for="first_img"></label>
+              <input type="image" src="" name="first_img" class="image">
+            </fieldset>
+          </div>
+          <div class="product">
+            <fieldset id="product_two" >
+              <label for="second_img"></label>
+              <input type="image" src="" name="second_img" class="image">
+            </fieldset>
+          </div>
+          <div class="product">
+            <fieldset id="product_three" >
+              <label for="third_img"></label>
+              <input type="image" src="" name="third_img" class="image">
+            </fieldset>
+          </div>
+        </section>
 
-        <section id="results">
+        <section class="results">
+          <canvas id="myChart" width="400" height="400"></canvas>
 
         </section>
 
@@ -47,7 +50,7 @@
 
 
 
-
+    <script src="chart.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

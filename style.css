@@ -1,14 +1,20 @@
 
 header {
   height: 100px;
-  background-color: #331552;
-  position: fixed;
+  background-color: #75241c;
+
   top: 0;
   width: 100%;
 }
 
+button {
+  margin: auto;
+  display: inline;
+  width: 25%;
+}
+
 body {
-  background-color: #000000;
+  background-color: #ffffff;
 
 
 }
@@ -23,8 +29,21 @@ main {
   display: inline-block;
 }
 
+.main {
+  width: 960px;
+  margin: auto;
+}
+
+.results {
+  width: 750px;
+  height: auto;
+  margin: auto;
+}
+
+
 
 input {
   max-width: 100%;
-  height: auto;
+  margin-left: 20px;
+  margin-right: 20px;
 }
