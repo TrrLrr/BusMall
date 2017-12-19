@@ -2,7 +2,7 @@
 
 
 //global arrays
-var productArr = ['img/bag.jpg', 'img/banana.jpg','img/bathroom.jpg','img/boots.jpg','img/breakfast.jpg','img/bubblegum.jpg','img/chair.jpg','img/cthulhu.jpg','img/dog-duck.jpg','img/dragon.jpg','img/pen.jpg','img/pet-sweep.jpg','img/scissors.jpg','img/shark.jpg','img/sweep.png','img/tauntaun.jpg','img/unicorn.jpg','img/usb.gif','img/water-can.jpg','img/wine-glass.jpg'];
+var productArr = ['img/bag.jpg', 'img/banana.jpg','img/bathroom.jpg','img/boots.jpg','img/breakfast.jpg','img/bubblegum.jpg','img/chair.jpg','img/cthulhu.jpg','img/dog-duck.jpg','img/dragon.jpg','img/pen.jpg','img/pet-sweep.jpg','img/scissors.jpg','img/shark.jpg','img/sweep.png','img/tauntaun.jpg','img/unicorn.jpg','img/usb.gif','img/water-can.jpg', 'img/wine-glass.jpg'];
 
 Product.allProducts = [];
 
@@ -82,6 +82,8 @@ function mainSurveyOne() {
 
   event.preventDefault();
 
+
+
   Product.allProducts[randomProductOne].totalVotes++;
   voteCounter++;
   pass = false;
@@ -102,10 +104,16 @@ function mainSurveyOne() {
     for(var i = 0; i < lastShown.length; i++) {
       if(randomProductOne === lastShown[i]) {
         pass = false;
+        console.log(pass);
+        break;
       } else if (randomProductTwo === lastShown[i]) {
         pass = false;
+        console.log(pass);
+        break;
       } else if (randomProductThree === lastShown[i]) {
         pass = false;
+        console.log(pass);
+        break;
       } else {
         pass = true;
       }
@@ -154,10 +162,16 @@ function mainSurveyTwo() {
     for(var i = 0; i < lastShown.length; i++) {
       if(randomProductOne === lastShown[i]) {
         pass = false;
+        break;
+        console.log(pass);
       } else if (randomProductTwo === lastShown[i]) {
         pass = false;
+        break;
+        console.log(pass);
       } else if (randomProductThree === lastShown[i]) {
         pass = false;
+        console.log(pass);
+        break;
       } else {
         pass = true;
       }
@@ -205,12 +219,20 @@ function mainSurveyThree() {
     for(var i = 0; i < lastShown.length; i++) {
       if(randomProductOne === lastShown[i]) {
         pass = false;
+        console.log(pass);
+        break;
       } else if (randomProductTwo === lastShown[i]) {
         pass = false;
+        console.log(pass);
+        break;
       } else if (randomProductThree === lastShown[i]) {
         pass = false;
+        console.log(pass);
+        break;
+
       } else {
         pass = true;
+        console.log(pass);
       }
     }
 

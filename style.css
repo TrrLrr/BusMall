@@ -19,7 +19,12 @@ main {
 
 .product {
   width: 250px;
-  display: inline-block;
-  position: relative;
   height: 250px;
+  display: inline-block;
+}
+
+
+input {
+  max-width: 100%;
+  height: auto;
 }
