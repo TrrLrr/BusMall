@@ -49,6 +49,13 @@ function createProducts() {
   }
 }
 
+//remove pictures
+function removeProducts() {
+  productOne.innerHTML = '';
+  productTwo.innerHTML = '';
+  productThree.innerHTML = '';
+}
+
 //random product function
 function ranNum() {
   return Math.floor(Math.random() * ((productArr.length-1) + 1));
@@ -183,7 +190,8 @@ function mainSurveyOne() {
     updateArr();
 
     if(voteCounter >= 25) {
-      renderChart()
+      renderChart();
+      removeProducts();
     } else {
       console.log('keep truckin');
     }
@@ -214,7 +222,8 @@ function mainSurveyTwo() {
     updateArr();
 
     if(voteCounter >= 25) {
-      renderChart()
+      renderChart();
+      removeProducts();
     } else {
       console.log('keep truckin');
     }
@@ -241,7 +250,8 @@ function mainSurveyThree() {
     updateArr();
 
     if(voteCounter >= 25) {
-      renderChart()
+      renderChart();
+      removeProducts();
     } else {
       console.log('keep truckin');
     }
