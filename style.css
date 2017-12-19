@@ -1,0 +1,25 @@
+
+header {
+  height: 100px;
+  background-color: #331552;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+body {
+  background-color: #000000;
+
+
+}
+
+main {
+  margin-top: 150px;
+}
+
+.product {
+  width: 250px;
+  display: inline-block;
+  position: relative;
+  height: 250px;
+}
