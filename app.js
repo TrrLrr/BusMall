@@ -25,6 +25,8 @@ var randomProductThree = ranNum();
 //vote counter
 var voteCounter = 0;
 
+var pass = false;
+
 //constructor function
 function Product(filePath) {
   this.filePath = filePath;
@@ -55,19 +57,19 @@ function startSurvey() {
   event.preventDefault();
 
 
-  productOne.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductOne].filePath + '">';
+  productOne.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductOne].filePath + '" name="first_img">';
 
   while(randomProductTwo === randomProductOne) {
     randomProductTwo = ranNum();
   }
 
-  productTwo.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductTwo].filePath + '">';
+  productTwo.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductTwo].filePath + '" name="second_img">';
 
   while(randomProductThree === randomProductTwo || randomProductThree === randomProductOne) {
     randomProductThree = ranNum();
   }
 
-  productThree.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductThree].filePath + '">';
+  productThree.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductThree].filePath + '" name="third_img">';
 
   lastShown.push(randomProductOne);
   lastShown.push(randomProductTwo);
@@ -76,13 +78,163 @@ function startSurvey() {
 
 }
 
-function mainSurvey() {
+function mainSurveyOne() {
 
   event.preventDefault();
+
+  Product.allProducts[randomProductOne].totalVotes++;
+  voteCounter++;
+  pass = false;
+
+  while(pass === false) {
+    randomProductOne = ranNum();
+    randomProductTwo = ranNum();
+    randomProductThree = ranNum();
+
+    while(randomProductTwo === randomProductOne) {
+      randomProductTwo = ranNum();
+    }
+
+    while(randomProductThree === randomProductTwo || randomProductThree === randomProductOne) {
+      randomProductThree = ranNum();
+    }
+
+    for(var i = 0; i < lastShown.length; i++) {
+      if(randomProductOne === lastShown[i]) {
+        pass = false;
+      } else if (randomProductTwo === lastShown[i]) {
+        pass = false;
+      } else if (randomProductThree === lastShown[i]) {
+        pass = false;
+      } else {
+        pass = true;
+      }
+    }
+
+  }
+  productOne.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductOne].filePath + '" name="first_img">';
+
+  productTwo.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductTwo].filePath + '" name="second_img">';
+
+  productThree.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductThree].filePath + '" name="third_img">';
+
+  lastShown = [];
+
+  lastShown.push(randomProductOne);
+  lastShown.push(randomProductTwo);
+  lastShown.push(randomProductThree);
+
 
 
 
 }
 
+function mainSurveyTwo() {
+
+  event.preventDefault();
+
+  Product.allProducts[randomProductTwo].totalVotes++;
+  voteCounter++;
+  pass = false;
+
+
+  while(pass === false) {
+    randomProductOne = ranNum();
+    randomProductTwo = ranNum();
+    randomProductThree = ranNum();
+
+    while(randomProductTwo === randomProductOne) {
+      randomProductTwo = ranNum();
+    }
+
+    while(randomProductThree === randomProductTwo || randomProductThree === randomProductOne) {
+      randomProductThree = ranNum();
+    }
+
+    for(var i = 0; i < lastShown.length; i++) {
+      if(randomProductOne === lastShown[i]) {
+        pass = false;
+      } else if (randomProductTwo === lastShown[i]) {
+        pass = false;
+      } else if (randomProductThree === lastShown[i]) {
+        pass = false;
+      } else {
+        pass = true;
+      }
+    }
+
+  }
+  productOne.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductOne].filePath + '" name="first_img">';
+
+  productTwo.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductTwo].filePath + '" name="second_img">';
+
+  productThree.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductThree].filePath + '" name="third_img">';
+
+  lastShown = [];
+
+  lastShown.push(randomProductOne);
+  lastShown.push(randomProductTwo);
+  lastShown.push(randomProductThree);
+
+
+
+}
+
+function mainSurveyThree() {
+
+  event.preventDefault();
+
+  Product.allProducts[randomProductThree].totalVotes++;
+  voteCounter++;
+  pass = false;
+
+
+  while(pass === false) {
+    randomProductOne = ranNum();
+    randomProductTwo = ranNum();
+    randomProductThree = ranNum();
+
+    while(randomProductTwo === randomProductOne) {
+      randomProductTwo = ranNum();
+    }
+
+    while(randomProductThree === randomProductTwo || randomProductThree === randomProductOne) {
+      randomProductThree = ranNum();
+    }
+
+    for(var i = 0; i < lastShown.length; i++) {
+      if(randomProductOne === lastShown[i]) {
+        pass = false;
+      } else if (randomProductTwo === lastShown[i]) {
+        pass = false;
+      } else if (randomProductThree === lastShown[i]) {
+        pass = false;
+      } else {
+        pass = true;
+      }
+    }
+
+  }
+  productOne.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductOne].filePath + '" name="first_img">';
+
+  productTwo.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductTwo].filePath + '" name="second_img">';
+
+  productThree.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductThree].filePath + '" name="third_img">';
+
+  lastShown = [];
+
+  lastShown.push(randomProductOne);
+  lastShown.push(randomProductTwo);
+  lastShown.push(randomProductThree);
+
+
+
+}
+
+
+
 createProducts();
 survey_start.addEventListener('submit', startSurvey);
+productOne.addEventListener('click', mainSurveyOne);
+productTwo.addEventListener('click', mainSurveyTwo);
+productThree.addEventListener('click', mainSurveyThree);
