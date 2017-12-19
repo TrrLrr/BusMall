@@ -172,18 +172,23 @@ function mainSurveyOne() {
 
   event.preventDefault();
 
-  Product.allProducts[randomProductOne].totalVotes++;
-  voteCounter++;
-  pass = false;
+  if(voteCounter < 25) {
 
-  choiceTest();
-  renderProducts();
-  updateArr();
+    Product.allProducts[randomProductOne].totalVotes++;
+    voteCounter++;
+    pass = false;
 
-  if(voteCounter >= 25) {
-    renderChart()
+    choiceTest();
+    renderProducts();
+    updateArr();
+
+    if(voteCounter >= 25) {
+      renderChart()
+    } else {
+      console.log('keep truckin');
+    }
   } else {
-    console.log('keep truckin');
+    console.log('voting complete');
   }
 
 }
@@ -198,18 +203,23 @@ function mainSurveyTwo() {
 
   event.preventDefault();
 
-  Product.allProducts[randomProductTwo].totalVotes++;
-  voteCounter++;
-  pass = false;
+  if(voteCounter < 25) {
 
-  choiceTest();
-  renderProducts();
-  updateArr();
+    Product.allProducts[randomProductTwo].totalVotes++;
+    voteCounter++;
+    pass = false;
 
-  if(voteCounter >= 25) {
-    renderChart()
+    choiceTest();
+    renderProducts();
+    updateArr();
+
+    if(voteCounter >= 25) {
+      renderChart()
+    } else {
+      console.log('keep truckin');
+    }
   } else {
-    console.log('keep truckin');
+    console.log('voting complete');
   }
 
 }
@@ -220,20 +230,25 @@ function mainSurveyThree() {
 
   event.preventDefault();
 
-  Product.allProducts[randomProductThree].totalVotes++;
-  voteCounter++;
-  pass = false;
+  if(voteCounter < 25) {
 
-  choiceTest();
-  renderProducts();
-  updateArr();
+    Product.allProducts[randomProductThree].totalVotes++;
+    voteCounter++;
+    pass = false;
 
-  if(voteCounter >= 25) {
-    renderChart()
+    choiceTest();
+    renderProducts();
+    updateArr();
+
+    if(voteCounter >= 25) {
+      renderChart()
+    } else {
+      console.log('keep truckin');
+    }
+
   } else {
-    console.log('keep truckin');
+    console.log('voting complete');
   }
-
 }
 
 
