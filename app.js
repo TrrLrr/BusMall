@@ -12,12 +12,16 @@ var names = [];
 
 var votesArr = [];
 
+var timesShownArr = [];
+
 //product variables
 var productOne = document.getElementById('product_one');
 
 var productTwo = document.getElementById('product_two');
 
 var productThree = document.getElementById('product_three');
+
+var button = document.getElementById('button');
 
 //random product variables
 var randomProductOne = ranNum();
@@ -37,7 +41,8 @@ function Product(filePath) {
   this.path = filePath.split('/')[1];
   this.name = this.path.split('.')[0];
   this.totalVotes = 0;
-  this.beenShown = false;
+  
+  this.timesShown = 0;
   Product.allProducts.push(this);
 }
 
@@ -110,11 +115,11 @@ function choiceTest() {
 
 //#############################################
 function renderProducts() {
-  productOne.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductOne].filePath + '" name="first_img">';
+  productOne.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductOne].filePath + '">';
 
-  productTwo.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductTwo].filePath + '" name="second_img">';
+  productTwo.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductTwo].filePath + '">';
 
-  productThree.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductThree].filePath + '" name="third_img">';
+  productThree.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductThree].filePath + '">';
 
 }
 //create the chart
@@ -123,6 +128,7 @@ function renderChart() {
   for(var i = 0; i < Product.allProducts.length; i++){
     names.push(Product.allProducts[i].name);
     votesArr.push(Product.allProducts[i].totalVotes);
+    timesShownArr.push(Product.allProducts[i].timesShown);
   }
 
 
@@ -139,6 +145,7 @@ var chart = new Chart(ctx, {
       backgroundColor: ['rgba(242, 75, 75, 0.4)','rgba(255, 176, 0, 0.4)','rgba(242, 255, 0, 0.4)','rgba(74, 255, 0, 0.4)','rgba(0, 56, 255, 0.4)','rgba(128, 0, 255, 0.4)','rgba(255, 0, 0, 0.4)','rgba(255, 130, 0, 0.4)','rgba(227, 255, 0, 0.4)','rgba(36, 255, 0, 0.4)','rgba(0, 33, 255, 0.4)','rgba(119, 0, 252, 0.41)','rgba(255, 0, 0, 0.4)','rgba(255, 191, 0, 0.4)','rgba(242, 255, 0, 0.4)','rgba(0, 255, 33, 0.41)','rgba(0, 56, 255, 0.4)','rgba(89, 0, 255, 0.39)','rgba(255, 0, 0, 0.43)','rgba(255, 222, 0, 0.41)']
     }]
   },
+
   options: {}
 
 
@@ -154,23 +161,30 @@ function startSurvey() {
   event.preventDefault();
 
 
-  productOne.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductOne].filePath + '" name="first_img">';
+  productOne.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductOne].filePath + '">';
 
   while(randomProductTwo === randomProductOne) {
     randomProductTwo = ranNum();
   }
 
-  productTwo.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductTwo].filePath + '" name="second_img">';
+  productTwo.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductTwo].filePath + '">';
 
   while(randomProductThree === randomProductTwo || randomProductThree === randomProductOne) {
     randomProductThree = ranNum();
   }
 
-  productThree.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductThree].filePath + '" name="third_img">';
+  productThree.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductThree].filePath + '">';
 
   lastShown.push(randomProductOne);
   lastShown.push(randomProductTwo);
   lastShown.push(randomProductThree);
+
+  Product.allProducts[randomProductOne].timesShown++;
+  Product.allProducts[randomProductTwo].timesShown++;
+  Product.allProducts[randomProductThree].timesShown++;
+
+
+  button.innerHTML = '';
 
 
 }
@@ -182,6 +196,7 @@ function mainSurveyOne() {
   if(voteCounter < 25) {
 
     Product.allProducts[randomProductOne].totalVotes++;
+    Product.allProducts[randomProductOne].timesShown++;
     voteCounter++;
     pass = false;
 
@@ -214,6 +229,7 @@ function mainSurveyTwo() {
   if(voteCounter < 25) {
 
     Product.allProducts[randomProductTwo].totalVotes++;
+    Product.allProducts[randomProductTwo].timesShown++;
     voteCounter++;
     pass = false;
 
@@ -242,6 +258,7 @@ function mainSurveyThree() {
   if(voteCounter < 25) {
 
     Product.allProducts[randomProductThree].totalVotes++;
+    Product.allProducts[randomProductThree].timesShown++;
     voteCounter++;
     pass = false;
 
