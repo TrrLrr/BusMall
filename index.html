@@ -5,33 +5,43 @@
     <title>BusMall</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Raleway" rel="stylesheet">
   </head>
   <body>
     <header>
       <h1>BusMall</h1>
+      <h2>Bringing You Products You Don't Need</h2>
 
     </header>
 
     <main>
-      <form id="survey_start">
-        <button id="start_button" type="submit"> Start</button>
-      </form>
+      <div class="start" id="button">
+        <form id="survey_start">
+          <button id="start_button" type="submit"> Start</button>
+        </form>
+      </div>
 
-      <form id="survey_main">
-        <fieldset id="product_one" class="product">
-          <label for="first_img"></label>
-          <input type="image" src="" name="first_img">
-        </fieldset>
-        <fieldset id="product_two" class="product">
-          <label for="second_img"></label>
-          <input type="image" src="" name="second_img">
-        </fieldset>
-        <fieldset id="product_three" class="product">
-          <label for="third_img"></label>
-          <input type="image" src="" name="third_img">
-        </fieldset>
+      <section class="main">
+        <form id="survey_main">
+          <div class="product">
+            <fieldset id="product_one" >
 
-        <section id="results">
+            </fieldset>
+          </div>
+          <div class="product">
+            <fieldset id="product_two" >
+
+            </fieldset>
+          </div>
+          <div class="product">
+            <fieldset id="product_three" >
+
+            </fieldset>
+          </div>
+        </section>
+
+        <section class="results">
+          <canvas id="myChart" width="400" height="400"></canvas>
 
         </section>
 
@@ -41,7 +51,7 @@
 
 
 
-
+    <script src="chart.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
