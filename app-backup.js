@@ -46,39 +46,12 @@ function Product(filePath) {
   Product.allProducts.push(this);
 }
 
-//saves completed survey to local storage
-function saveComplete() {
+//saves to local storage
+function save() {
   localStorage.completed = true;
   localStorage.names = names;
   localStorage.votes = votesArr;
 }
-
-//saves partial survey to local local
-function savePartial() {
-  localStorage.voteCount = voteCounter;
-
-  votesArr = [];
-  for(var i = 0; i < Product.allProducts.length; i++){
-    votesArr.push(Product.allProducts[i].totalVotes);
-  }
-
-  localStorage.votes = votesArr;
-  localStorage.lastShown = lastShown;
-}
-
-//load a partial survey
-function loadPartial() {
-  lastShown = localStorage.lastShown.split(',');
-  votesArr = localStorage.votes.split(',');
-  voteCounter = localStorage.voteCount;
-
-  randomProductOne = lastShown[0];
-  randomProductTwo = lastShown[1];
-  randomProductThree = lastShown[2];
-  renderProducts();
-}
-
-
 
 //gets data on load
 function getData() {
@@ -92,8 +65,6 @@ function load() {
     button.innerHTML = '';
     getData();
     renderChart();
-  } else if(localStorage.votes) {
-    loadPartial();
   }
 }
 
@@ -177,7 +148,7 @@ function renderChart() {
 
   for(var i = 0; i < Product.allProducts.length; i++){
     names.push(Product.allProducts[i].name);
-    //votesArr.push(Product.allProducts[i].totalVotes);
+    votesArr.push(Product.allProducts[i].totalVotes);
     timesShownArr.push(Product.allProducts[i].timesShown);
   }
 
@@ -210,9 +181,6 @@ function startSurvey() {
 
   event.preventDefault();
 
-  localStorage.votes = votesArr;
-  localStorage.voteCount = voteCounter;
-  localStorage.lastShown = lastShown;
 
   productOne.innerHTML = '<input type="image" src="' + Product.allProducts[randomProductOne].filePath + '">';
 
@@ -256,13 +224,11 @@ function mainSurveyOne() {
     choiceTest();
     renderProducts();
     updateArr();
-    savePartial();
-
 
     if(voteCounter >= 25) {
       renderChart();
       removeProducts();
-      saveComplete();
+      save();
     } else {
       console.log('keep truckin');
     }
@@ -292,12 +258,11 @@ function mainSurveyTwo() {
     choiceTest();
     renderProducts();
     updateArr();
-    savePartial();
 
     if(voteCounter >= 25) {
       renderChart();
       removeProducts();
-      saveComplete();
+      save();
     } else {
       console.log('keep truckin');
     }
@@ -323,12 +288,11 @@ function mainSurveyThree() {
     choiceTest();
     renderProducts();
     updateArr();
-    savePartial();
 
     if(voteCounter >= 25) {
       renderChart();
       removeProducts();
-      saveComplete();
+      save();
     } else {
       console.log('keep truckin');
     }
@@ -341,8 +305,8 @@ function mainSurveyThree() {
 
 
 
-createProducts();
 load();
+createProducts();
 survey_start.addEventListener('submit', startSurvey);
 productOne.addEventListener('click', mainSurveyOne);
 productTwo.addEventListener('click', mainSurveyTwo);
