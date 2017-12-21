@@ -340,7 +340,7 @@ function mainSurveyThree() {
 
 
 
-
+//initialize application
 createProducts();
 load();
 survey_start.addEventListener('submit', startSurvey);
