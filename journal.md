@@ -18,4 +18,6 @@ Dec 18: Today I feel like I hit the wall a bit, and I've been waiting for that. 
 
 Dec 19: Learning about libraries was very interesting, it opens the doors to avenues to streamline and iterate upon what we've learned already, and I can see the potential to be more creative with more resources available. Getting BusMall working properly felt like a pretty big breakthrough, as I found the initial build to be more difficult than anything we worked on with cookie stand last week.
 
-Dec 20: Another relatively easy day during lab. I had my chart printing already, so implementing the local storage wasn't too difficult. I even got around to finishing the main stretch goal, although there is one little issue with my chart double printing when the page reloads. I need to refactor some of my code, as I think my mark up is a but bloated and theres a better way I could deal with the DOM. 
+Dec 20: Another relatively easy day during lab. I had my chart printing already, so implementing the local storage wasn't too difficult. I even got around to finishing the main stretch goal, although there is one little issue with my chart double printing when the page reloads. I need to refactor some of my code, as I think my mark up is a but bloated and theres a better way I could deal with the DOM.
+
+Dec 21: Most of lab today was spent talking to my project group about what our plans are over the next week. I also spent a fair amount of time reading documentation and messing around with the web audio api, as we'll be using it heavily in our application. 

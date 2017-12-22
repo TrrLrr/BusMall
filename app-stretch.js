@@ -68,9 +68,14 @@ function savePartial() {
 
 //load a partial survey
 function loadPartial() {
+  
   lastShown = localStorage.lastShown.split(',');
   votesArr = localStorage.votes.split(',');
   voteCounter = localStorage.voteCount;
+
+  for(var i = 0; i < Product.allProducts.length; i++) {
+    Product.allProducts[i].totalVotes = parseInt(votesArr[i]);
+  }
 
   randomProductOne = lastShown[0];
   randomProductTwo = lastShown[1];
@@ -82,7 +87,7 @@ function loadPartial() {
 
 //gets data on load
 function getData() {
-  names = localStorage.names.split(',');
+  //names = localStorage.names.split(',');
   votesArr = localStorage.votes.split(',');
 }
 
